@@ -3,26 +3,20 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { notifyOptions } from './notifyOptions';
 import { fetchCountries } from './fetchCountries';
 import debounce from 'lodash.debounce';
+import * as Markup from './markup';
 
 const DEBOUNCE_DELAY = 300;
-const refs = {
-  input: document.querySelector('#search-box'),
-  list: document.querySelector('.country-list'),
-  card: document.querySelector('.country-info'),
-};
-refs.input.addEventListener('input', debounce(onInput, DEBOUNCE_DELAY));
+const inputEl = document.querySelector('#search-box');
+inputEl.addEventListener('input', debounce(onInput, DEBOUNCE_DELAY));
 
 function onInput(event) {
   const searchValue = event.target.value;
   if (searchValue.length > 0) {
-    fetchCountries(searchValue);
+    fetchCountries(searchValue).then(data => {
+      Markup.clear();
+      Markup.draw(data);
+    });
   } else {
-    clearMarkup();
+    Markup.clear();
   }
-}
-
-function clearMarkup() {
-  refs.card.innerHTML = '';
-  refs.list.innerHTML = '';
-  console.log('clearMarkup() done!');
 }
