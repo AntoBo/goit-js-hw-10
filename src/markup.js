@@ -19,6 +19,7 @@ export function draw(data) {
   //card
   if (data.length === 1) {
     refs.card.innerHTML = templateCard(data[0]);
+    console.log(data[0].flags);
   } else {
     //list
     refs.list.innerHTML = templateList(data);
