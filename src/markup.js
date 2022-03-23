@@ -1,20 +1,12 @@
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { notifyOptions } from './notifyOptions';
-import Handlebars from 'handlebars';
-
-Handlebars.registerHelper('tostring', function (obj) {
-  return Object.values(obj).join(', ');
-});
-
 import templateCard from './card.hbs';
+import templateList from './list.hbs';
 
 const refs = {
   list: document.querySelector('.country-list'),
   card: document.querySelector('.country-info'),
 };
-
-const listMaruup = '';
-const cardMarkup = '';
 
 export function draw(data) {
   //check if data too long
@@ -29,12 +21,11 @@ export function draw(data) {
     refs.card.innerHTML = templateCard(data[0]);
   } else {
     //list
-    refs.list.innerHTML = 'this in data to put to list';
+    refs.list.innerHTML = templateList(data);
   }
 }
 
 export function clear() {
   refs.card.innerHTML = '';
   refs.list.innerHTML = '';
-  console.log('clear markup!');
 }

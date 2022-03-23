@@ -4,13 +4,6 @@ import { notifyOptions } from './notifyOptions';
 import { fetchCountries } from './fetchCountries';
 import debounce from 'lodash.debounce';
 import * as Markup from './markup';
-import Handlebars from 'handlebars';
-
-console.log(Handlebars);
-
-Handlebars.registerHelper('tostring', function (obj) {
-  return Object.values(obj).join(', ');
-});
 
 const DEBOUNCE_DELAY = 300;
 const inputEl = document.querySelector('#search-box');
