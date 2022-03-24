@@ -1,7 +1,7 @@
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { notifyOptions } from './notifyOptions';
-import templateCard from './card.hbs';
-import templateList from './list.hbs';
+import templateCard from './handlebars/card';
+import templateList from './handlebars/list';
 
 const refs = {
   list: document.querySelector('.country-list'),

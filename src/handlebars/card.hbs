@@ -1,0 +1,6 @@
+<h1 class="card__title"><img width="70" height="50"src='{{flags.svg}}' class="card__flag"></span>{{name.common}}</h1>
+<p class="card__text"><span class="card__text-title">Capital:</span> {{capital}}</p>
+<p class="card__text"><span class="card__text-title">Population:</span> {{population}}</p>
+<p class="card__text"><span class="card__text-title">Languages:</span> 
+{{#each languages}} {{this}}{{#if @last}}{{else}},{{/if}}{{/each}}
+</p>
