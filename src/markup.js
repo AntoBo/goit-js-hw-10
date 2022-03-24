@@ -9,7 +9,7 @@ const refs = {
 };
 
 export function draw(data) {
-  //check if data too long
+  //check whether data too long
   if (data.length > 10) {
     Notify.info('Too many matches found. Please keep typing', notifyOptions);
     return;
